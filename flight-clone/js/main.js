@@ -189,8 +189,8 @@ async function showFlightDetails(flightId) {
 
         // Create modal content
         const modalContent = `
-            <div class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-                <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="modal-container">
+                <div class="modal-content">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
