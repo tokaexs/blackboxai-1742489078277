@@ -193,7 +193,10 @@ async function showFlightDetails(flightId) {
                 <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-2xl font-playfair font-bold text-luxury">Premium Flight Experience</h3>
+                            <div>
+                                <h3 class="text-2xl font-playfair font-bold text-luxury">Premium Flight Experience</h3>
+                                <p class="text-gray-500 mt-1">Experience luxury at 40,000 feet</p>
+                            </div>
                             <button onclick="closeModal()" class="text-gray-400 hover:text-gray-500">
                                 <i class="fas fa-times text-xl"></i>
                             </button>
@@ -217,7 +220,7 @@ async function showFlightDetails(flightId) {
                             </div>
 
                             <!-- Flight Schedule -->
-                            <div class="py-6">
+                            <div class="py-6 border-b">
                                 <h4 class="text-xl font-semibold mb-6">Flight Schedule</h4>
                                 <div class="flex items-start justify-between">
                                     <div class="flex-1">
@@ -245,7 +248,7 @@ async function showFlightDetails(flightId) {
                             </div>
 
                             <!-- Premium Services -->
-                            <div class="py-6 border-t">
+                            <div class="py-6 border-b">
                                 <h4 class="text-xl font-semibold mb-6">Premium Services</h4>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div class="flex items-start">
@@ -287,8 +290,30 @@ async function showFlightDetails(flightId) {
                                 </div>
                             </div>
 
+                            <!-- Aircraft Features -->
+                            <div class="py-6 border-b">
+                                <h4 class="text-xl font-semibold mb-6">Aircraft Features</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                        <i class="fas fa-bed text-2xl text-gold mb-2"></i>
+                                        <h5 class="font-semibold text-luxury">180° Flat Bed</h5>
+                                        <p class="text-sm text-gray-500">Full-flat beds with direct aisle access</p>
+                                    </div>
+                                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                        <i class="fas fa-tv text-2xl text-gold mb-2"></i>
+                                        <h5 class="font-semibold text-luxury">Entertainment</h5>
+                                        <p class="text-sm text-gray-500">32" HD screens with premium content</p>
+                                    </div>
+                                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                                        <i class="fas fa-wifi text-2xl text-gold mb-2"></i>
+                                        <h5 class="font-semibold text-luxury">Wi-Fi</h5>
+                                        <p class="text-sm text-gray-500">High-speed internet connectivity</p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <!-- Fare Details -->
-                            <div class="py-6 border-t">
+                            <div class="py-6 border-b">
                                 <h4 class="text-xl font-semibold mb-6">Fare Details</h4>
                                 <div class="space-y-4">
                                     <div class="flex justify-between">
@@ -391,7 +416,7 @@ async function bookFlight(flightId) {
             }),
         });
 
-        showNotification('Booking confirmed! Your booking ID is ' + booking.booking_id, 'success');
+        showNotification(`Booking confirmed! Your booking ID is ${booking.booking_id}`, 'success');
         closeModal();
     } catch (error) {
         console.error('Error:', error);
@@ -500,17 +525,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Initialize filters
         initializeFilters();
-
-        // Show premium features section
-        const premiumFeatures = document.createElement('div');
-        premiumFeatures.className = 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16';
-        premiumFeatures.innerHTML = `
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-playfair font-bold text-luxury">Premium Services</h2>
-                <p class="mt-2 text-gray-600">Experience luxury at every step of your journey</p>
-            </div>
-        `;
-        document.querySelector('main').appendChild(premiumFeatures);
     } catch (error) {
         console.error('Error:', error);
         showNotification('Failed to initialize page', 'error');
