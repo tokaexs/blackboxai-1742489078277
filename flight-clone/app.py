@@ -36,7 +36,7 @@ flights = [
         "airline": "Qatar Airways",
         "flightNumber": "QR-701",
         "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Qatar_Airways_Logo.svg/512px-Qatar_Airways_Logo.svg.png",
-        "departure": {
+        "departure": {l
             "time": "02:15",
             "airport": "DOH",
             "city": "Doha",
